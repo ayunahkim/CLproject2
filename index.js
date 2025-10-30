@@ -20,6 +20,9 @@ let users = {};
 // on connection state new client
 io.sockets.on('connection', function(socket){
     console.log("New Client: " + socket.id);
+    let count = io.engine.clientsCount;
+
+    // console.log(count);
 
     socket.on('userData', function(data){
         data.id = socket.id;
