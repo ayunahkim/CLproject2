@@ -9,7 +9,30 @@
     <title>title</title>
 </head>
 <body>
+    <!-- current user counter -->
+    <div id="userCounter"></div>
+
+    <!-- health bars -->
+    <div class="hpbar" id="healthbar">
+        <div id="healthprogress">health</div>
+    </div>
     
+    <div class="hpbar" id="hungerbar">
+        <div id="hungerprogress">hunger</div>
+    </div>
+
+    <div class="hpbar" id="stressbar">
+        <div id="stressprogress">stress</div>
+    </div>
+
+    <!-- buttons for users to press to help student -->
+    <div id="buttonsbox">
+        <button class="hpbttn" id="healthbttn" onclick="helpStudent('health')">Health</button>
+        <button class="hpbttn" id="hungerbttn" onclick="helpStudent('hunger')">Hunger</button>
+        <button class="hpbttn" id="stressbttn" onclick="helpStudent('stress')">Stress</button>
+    </div>
+    
+
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
     <script src="sketch.js"></script>
 </body>
