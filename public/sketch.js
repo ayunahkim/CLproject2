@@ -20,10 +20,10 @@ let gameover = false;
 
 function setup(){
     let canvasBox = document.getElementById("canvasbox");
-    let canvas = createCanvas(windowWidth*.9,windowHeight*.6);
+    let canvas = createCanvas(600,400);
     canvas.parent(canvasBox);
 
-    background(255);
+    background(0);
 
     socket.on('connect', function(){
         console.log("connected");
@@ -44,9 +44,8 @@ function draw(){
     if(gameover){
         background(0);
     } else{
-        background(255);
+        // background(255);
         textAlign(CENTER);
-        text("Placeholder :P",width/2,height/2);
         dying();
     }
     
@@ -58,10 +57,9 @@ function dying(){
         gameover = true;
 
     } else{
-        health -= decrease*.5;
+        health -= decrease;
         healthprogress.style.width = health + "%";
-        // healthprogress.innerHTML = health + "%";
-
+        
         hunger -= decrease;
         hungerprogress.style.width = hunger + "%";
 
@@ -72,7 +70,7 @@ function dying(){
 
 function helpStudent(stat){
     if(stat == "health"){
-        health++;
+        health+=2;
         if(health >=100){
             health = 100;
         }
@@ -87,4 +85,10 @@ function helpStudent(stat){
             stress = 100;
         }
     }
+}
+
+function gameOver(){
+    background(0);
+    fill(255);
+    text("GAME OVER",width/2,height/2);
 }
