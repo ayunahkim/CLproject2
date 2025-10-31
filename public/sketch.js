@@ -19,7 +19,10 @@ let gameover = false;
 
 
 function setup(){
-    createCanvas(windowWidth,windowHeight);
+    let canvasBox = document.getElementById("canvasbox");
+    let canvas = createCanvas(windowWidth*.9,windowHeight*.6);
+    canvas.parent(canvasBox);
+
     background(255);
 
     socket.on('connect', function(){
