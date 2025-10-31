@@ -33,23 +33,55 @@ function setup(){
     socket.on('userDisconnected', function(userId){
         delete users[userId];
     });
+
+    frameRate(5);
 }
 
 function draw(){
-    background(255);
-    textAlign(CENTER);
-    text("Placeholder :P",width/2,height/2);
+    if(gameover){
+        background(0);
+    } else{
+        background(255);
+        textAlign(CENTER);
+        text("Placeholder :P",width/2,height/2);
+        dying();
+    }
+    
 }
 
 function dying(){
     //add conditions for number of clients active later
-    if(health<=0){
+    if(health<=0 || hunger<=0 || stress<=0){
         gameover = true;
+
+    } else{
+        health -= decrease*.5;
+        healthprogress.style.width = health + "%";
+        // healthprogress.innerHTML = health + "%";
+
+        hunger -= decrease;
+        hungerprogress.style.width = hunger + "%";
+
+        stress -= decrease;
+        stressprogress.style.width = stress + "%";
     }
 }
 
 function helpStudent(stat){
-    let temp = stat;
-    //buttons on click run this function
-    console.log("I ran! " + stat);
+    if(stat == "health"){
+        health++;
+        if(health >=100){
+            health = 100;
+        }
+    } if(stat == "hunger"){
+        hunger+=2;
+        if(hunger >= 100){
+            hunger = 100;
+        }
+    } if(stat == "stress"){
+        stress+=2;
+        if(stress >= 100){
+            stress = 100;
+        }
+    }
 }
