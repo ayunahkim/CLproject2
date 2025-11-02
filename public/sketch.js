@@ -2,6 +2,7 @@ let socket = io();
 let users = {};
 
 let usercount = document.getElementById("userCounter");
+let numusers;
 
 //variables for student health bars
 let health = 100;
@@ -30,7 +31,7 @@ function setup(){
     });
 
     socket.on('usercount', function(count){
-        let numusers = count;
+        numusers = count;
         usercount.innerHTML = "current users: " + numusers;
     });
 
@@ -40,6 +41,7 @@ function setup(){
 
     socket.on('userDisconnected', function(userId){
         delete users[userId];
+        usercount.innerHTML = "current users: " + numusers;
     });
 
     frameRate(5);

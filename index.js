@@ -23,7 +23,7 @@ io.sockets.on('connection', function(socket){
 
     setTimeout(()=>{
         io.emit('usercount', io.engine.clientsCount);
-    },500);
+    },200);
 
     socket.on('userData', function(data){
         data.id = socket.id;
@@ -38,6 +38,10 @@ io.sockets.on('connection', function(socket){
         console.log("Client disconnected: "+socket.id);
         delete users[socket.id];
         console.log("current users: " + io.engine.clientsCount);
+
+        setTimeout(()=>{
+            io.emit('usercount', io.engine.clientsCount);
+        },200);
 
         io.sockets.emit('userDisconnected',socket.id);
     });
