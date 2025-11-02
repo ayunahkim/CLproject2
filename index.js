@@ -20,9 +20,10 @@ let users = {};
 // on connection state new client
 io.sockets.on('connection', function(socket){
     console.log("New Client: " + socket.id);
-    let count = io.engine.clientsCount;
 
-    console.log(count);
+    setTimeout(()=>{
+        io.emit('usercount', io.engine.clientsCount);
+    },500);
 
     socket.on('userData', function(data){
         data.id = socket.id;
@@ -36,6 +37,7 @@ io.sockets.on('connection', function(socket){
     socket.on('disconnect', function(){
         console.log("Client disconnected: "+socket.id);
         delete users[socket.id];
+        console.log("current users: " + io.engine.clientsCount);
 
         io.sockets.emit('userDisconnected',socket.id);
     });

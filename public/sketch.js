@@ -1,7 +1,7 @@
 let socket = io();
 let users = {};
 
-let usercount;
+let usercount = document.getElementById("userCounter");
 
 //variables for student health bars
 let health = 100;
@@ -25,8 +25,13 @@ function setup(){
 
     background(0);
 
-    socket.on('connect', function(){
+    socket.on('connect', function(data){
         console.log("connected");
+    });
+
+    socket.on('usercount', function(count){
+        let numusers = count;
+        usercount.innerHTML = "current users: " + numusers;
     });
 
     socket.on('userData', function(userId){
