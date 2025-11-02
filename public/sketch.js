@@ -18,13 +18,30 @@ let decrease = 1;
 
 let gameover = false;
 
+//images
+let tired,neutral,cry,asleep;
+let sleep,food,catvid;
+let student;
+
+function preload(){
+    tired = loadImage('/assets/studentTired.png');
+    neutral = loadImage('/assets/studentNeutral.png');
+    cry = loadImage('/assets/studentCry.png');
+    asleep = loadImage('/assets/studentAsleep.png');
+
+    sleep = loadImage('/assets/sleep.png');
+    food = loadImage('/assets/food.png');
+    catvid = loadImage('/assets/catvid.png');
+}
 
 function setup(){
     let canvasBox = document.getElementById("canvasbox");
     let canvas = createCanvas(600,400);
     canvas.parent(canvasBox);
 
-    background(0);
+    background("#4E425B");
+
+    imageMode(CENTER);
 
     socket.on('connect', function(data){
         console.log("connected");
@@ -61,11 +78,33 @@ function draw(){
         // background(255);
         textAlign(CENTER);
         dying();
+        studentImage();
 
         let gameData = {health: health, hunger: hunger, stress: stress};
         socket.emit('gamedata', gameData);
     }
     
+}
+
+//determine which image of the student to use
+function studentImage(){
+    if(health>70||hunger>70||stress>70){
+        student = neutral;
+    }
+    //if any stat lower than 70
+    if(health<=70||hunger<=70||stress<=70){
+        student = asleep;
+    }
+    //else if any stat lower than 50
+    if(health<=50||hunger<=50||stress<=50){
+        student = tired;
+    }
+    //else if any stat lower than 30
+    if(health<=30||hunger<=30||stress<=30){
+        student = cry;
+    }
+
+    image(student,width/2,height-137);
 }
 
 function dying(){
