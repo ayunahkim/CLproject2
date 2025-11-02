@@ -59,7 +59,8 @@ function draw(){
 }
 
 function dying(){
-    //add conditions for number of clients active later
+    decrease = numusers*0.5;
+
     if(health<=0 || hunger<=0 || stress<=0){
         gameover = true;
 
@@ -73,6 +74,7 @@ function dying(){
         stress -= decrease;
         stressprogress.style.width = stress + "%";
     }
+    
 }
 
 function helpStudent(stat){
