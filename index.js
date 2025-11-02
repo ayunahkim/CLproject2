@@ -34,6 +34,10 @@ io.sockets.on('connection', function(socket){
         io.sockets.emit('userData',data);
     });
 
+    socket.on('gamedata',function(gamedata){
+        io.sockets.emit('gamedata',gamedata);
+    });
+
     socket.on('disconnect', function(){
         console.log("Client disconnected: "+socket.id);
         delete users[socket.id];

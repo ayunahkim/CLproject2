@@ -35,6 +35,12 @@ function setup(){
         usercount.innerHTML = "current users: " + numusers;
     });
 
+    socket.on('gamedata',function(obj){
+        health = obj.health;
+        hunger = obj.hunger;
+        stress = obj.stress;
+    });
+
     socket.on('userData', function(userId){
         users[data.id] = data;
     });
@@ -50,10 +56,14 @@ function setup(){
 function draw(){
     if(gameover){
         background(0);
+        gameOver();
     } else{
         // background(255);
         textAlign(CENTER);
         dying();
+
+        let gameData = {health: health, hunger: hunger, stress: stress};
+        socket.emit('gamedata', gameData);
     }
     
 }
