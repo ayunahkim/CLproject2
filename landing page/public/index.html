@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js"></script>
+    <link href="style.css" rel="stylesheet">
+    <title>title</title>
+</head>
+<body>
+    <!-- current user counter -->
+    <div id="userCounter">current users:</div>
+
+    <!-- health bars -->
+    <div class="hpbar" id="healthbar">
+        <div id="healthprogress">❤️</div>
+    </div>
+    
+    <div class="hpbar" id="hungerbar">
+        <div id="hungerprogress">🍽️</div>
+    </div>
+
+    <div class="hpbar" id="stressbar">
+        <div id="stressprogress">🧠</div>
+    </div>
+
+    <div id="canvasbox"></div>
+
+    <!-- buttons for users to press to help student -->
+    <div id="buttonsbox">
+        <button class="hpbttn" id="healthbttn" onclick="helpStudent('health')">Health</button>
+        <button class="hpbttn" id="hungerbttn" onclick="helpStudent('hunger')">Hunger</button>
+        <button class="hpbttn" id="stressbttn" onclick="helpStudent('stress')">Stress</button>
+    </div>
+    
+
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script src="sketch.js"></script>
+</body>
+</html>
