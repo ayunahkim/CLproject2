@@ -1,5 +1,5 @@
 ## Connections Lab - Project 2
 fall 2025 - Chioma & Dae
 
-## Link to demos
+## Link to demo
 [to add later]

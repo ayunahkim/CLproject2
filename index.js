@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-let express = require('express');
-let app = express();
-
-// app.get('/',(request, response)=> {
-//     response.send('hello');
-// })
-app.use(express.static(__dirname));
-
-
-app.get('/', (request, response) => {
-    response.sendFile(__dirname + '/index.html');
-});
-
-app.listen(3000, () => {
-    console.log("app listening at local host 3000");
-})
-=======
 // add express app
 let express = require('express');
 let app = express();
@@ -68,5 +50,3 @@ io.sockets.on('connection', function(socket){
         io.sockets.emit('userDisconnected',socket.id);
     });
 });
-
->>>>>>> 8623aa530ebeb8fc5578b34cc907e79d1e255230
