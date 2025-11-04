@@ -122,6 +122,16 @@ function dying(){
 
         stress -= decrease;
         stressprogress.style.width = stress + "%";
+
+        if(health<30){
+            healthprogress.style.backgroundColor = "#8B0000";
+        }
+        if(hunger<30){
+            hungerprogress.style.backgroundColor = "#8B0000";
+        }
+        if(stress<30){
+            stressprogress.style.backgroundColor = "#8B0000";
+        }
     }
     
 }
