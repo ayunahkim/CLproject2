@@ -16,6 +16,10 @@ button {
     border:none;
 }
 
+button:hover {
+    filter:contrast(120%);
+}
+
 button:active {
     filter:contrast(80%);
 }
