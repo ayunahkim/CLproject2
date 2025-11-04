@@ -1,12 +1,27 @@
 body {
-    background: white;
-    padding:20px;
+    background: #ab82c5;
+background-image: url('bedroom.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-attachment: fixed; /* keep this shit in place*/
+    padding: 0;
+    margin: 0;
+    position: relative;
+    min-height: 100vh;
+    
+
 }
 
 #canvasbox {
-    text-align:center;
-    margin:20px;
+    position:  absolute;
+    margin:0;
+    left: 80px;
+    top: 180px;
+    z-index: 10;
+    background: transparent;
 }
+
 
 #healthprogress {
     width:100%;
@@ -27,7 +42,10 @@ body {
 }
 
 #buttonsbox {
-    text-align:center;
+     position: fixed;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
 }
 
 .hpbar {
@@ -35,6 +53,7 @@ body {
     height:30px;
     background-color:grey;
     margin:10px;
+      margin-left: 200px;
 }
 
 .hpbttn {

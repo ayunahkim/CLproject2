@@ -39,7 +39,7 @@ function setup(){
     let canvas = createCanvas(600,400);
     canvas.parent(canvasBox);
 
-    background("#4E425B");
+    clear();
 
     imageMode(CENTER);
 
@@ -146,7 +146,10 @@ function helpStudent(stat){
 }
 
 function gameOver(){
-    background(0);
-    fill(255);
-    text("GAME OVER",width/2,height/2);
+    // Hide the canvas
+    document.getElementById("canvasbox").style.display = "none";
+    
+    // Takes over screen instead of just canvas
+    document.body.style.backgroundColor = "#ab82c5";
+    document.body.innerHTML = '<div style="color:white; font-size:50px; text-align:center; padding-top:45vh; font-family: \'Press Start 2P\', cursive;">GAME OVER</div>';
 }

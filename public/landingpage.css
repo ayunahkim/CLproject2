@@ -1,6 +1,6 @@
 .press-start-2p-regular {
   font-family: "Press Start 2P", system-ui;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -9,6 +9,10 @@ html, body {
     background-color: #ab82c5;
     text-align: center;
 }
+
+
+
+
 /* body {
     padding: 2px;
     background-color: #ab82c5;
@@ -21,9 +25,11 @@ html, body {
 
 .project_heading {
     font-family: "Press Start 2P", system-ui;
-    font-size: 25px;
+    font-size: 40px;
     color: white;
     animation: blink 2s ease-in-out infinite; /* totally realistic old school gamer blink*/
+    position: relative;
+    z-index: 100;
 }
 
 /*blink settings*/
@@ -45,12 +51,28 @@ html, body {
     padding: 10px 20px;
     margin: 10px;
     margin-top: 50px;
+    position: relative;
+    z-index: 100;
 }
 
 .nyu_circle {
     animation: float 3s ease-in-out infinite;
     margin-top: 100px;
+    position: relative;
+    z-index: 100;
 
+}
+
+/* don't forget z-index means positioning like forground and background lower numbers mean back, higher means front*/
+/* also do not forget the postion for the z index or you are fucked and it wont work */
+.wsq_background {
+    position: fixed;
+    left: 65px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 825px;
+    opacity: 0.15;
+    z-index: 1;
 }
 /* the instructuons pop up i basically stole/ recycled from my love map cause it was so much easier to do so  */
 
@@ -58,6 +80,7 @@ html, body {
     position: relative;
     display: inline-block;
     margin: 20px 0;
+    z-index: 1000;
 }
 
 .how-to-play-title {
@@ -68,6 +91,7 @@ html, body {
     padding: 10px;
     border: 2px solid black;
     background-color: rgba(255, 255, 255, 0.2);
+    z-index: 1000;
 }
 
 .instructions-popup { 
@@ -99,7 +123,7 @@ html, body {
     font-size: 14px;
     margin: 8px 0;
     color: black;
-    text-align: left;
+    text-align: center;
 }
 
 .how-to-play-container:hover .instructions-popup {
