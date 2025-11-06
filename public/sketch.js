@@ -108,7 +108,7 @@ function studentImage(){
 }
 
 function dying(){
-    decrease = numusers*0.1;
+    decrease = numusers*0.2;
 
     if(health<=0 || hunger<=0 || stress<=0){
         gameover = true;
