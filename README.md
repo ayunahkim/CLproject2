@@ -2,4 +2,4 @@
 fall 2025 - Chioma & Dae
 
 ## Link to demo
-[to add later]
+https://clproject2.onrender.com/
