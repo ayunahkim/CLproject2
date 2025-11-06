@@ -138,17 +138,17 @@ function dying(){
 
 function helpStudent(stat){
     if(stat == "health"){
-        health+=4;
+        health+=6;
         if(health >=100){
             health = 100;
         }
     } if(stat == "hunger"){
-        hunger+=4;
+        hunger+=6;
         if(hunger >= 100){
             hunger = 100;
         }
     } if(stat == "stress"){
-        stress+=4;
+        stress+=6;
         if(stress >= 100){
             stress = 100;
         }
